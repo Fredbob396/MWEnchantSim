@@ -33,7 +33,6 @@
             this.intelligenceBox = new System.Windows.Forms.TextBox();
             this.luckBox = new System.Windows.Forms.TextBox();
             this.baseCostBox = new System.Windows.Forms.TextBox();
-            this.typeBox = new System.Windows.Forms.TextBox();
             this.enchantLabel = new System.Windows.Forms.Label();
             this.intelligenceLabel = new System.Windows.Forms.Label();
             this.luckLabel = new System.Windows.Forms.Label();
@@ -62,6 +61,8 @@
             this.morrowindLabel = new System.Windows.Forms.Label();
             this.efCosMultLabel = new System.Windows.Forms.Label();
             this.effectCostMultBox = new System.Windows.Forms.TextBox();
+            this.typeBox = new System.Windows.Forms.ComboBox();
+            this.resetButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // enchantBox
@@ -96,18 +97,9 @@
             this.baseCostBox.Location = new System.Drawing.Point(118, 85);
             this.baseCostBox.Name = "baseCostBox";
             this.baseCostBox.Size = new System.Drawing.Size(100, 20);
-            this.baseCostBox.TabIndex = 3;
+            this.baseCostBox.TabIndex = 4;
             this.baseCostBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.baseCostBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.inputBox_KeyUp);
-            // 
-            // typeBox
-            // 
-            this.typeBox.Location = new System.Drawing.Point(118, 46);
-            this.typeBox.Name = "typeBox";
-            this.typeBox.Size = new System.Drawing.Size(100, 20);
-            this.typeBox.TabIndex = 4;
-            this.typeBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
-            this.typeBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.inputBox_KeyUp);
             // 
             // enchantLabel
             // 
@@ -168,7 +160,7 @@
             this.minMagBox.Location = new System.Drawing.Point(118, 124);
             this.minMagBox.Name = "minMagBox";
             this.minMagBox.Size = new System.Drawing.Size(100, 20);
-            this.minMagBox.TabIndex = 11;
+            this.minMagBox.TabIndex = 5;
             this.minMagBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.minMagBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.inputBox_KeyUp);
             // 
@@ -186,7 +178,7 @@
             this.maxMagBox.Location = new System.Drawing.Point(118, 163);
             this.maxMagBox.Name = "maxMagBox";
             this.maxMagBox.Size = new System.Drawing.Size(100, 20);
-            this.maxMagBox.TabIndex = 13;
+            this.maxMagBox.TabIndex = 6;
             this.maxMagBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.maxMagBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.inputBox_KeyUp);
             // 
@@ -195,7 +187,7 @@
             this.durationBox.Location = new System.Drawing.Point(118, 202);
             this.durationBox.Name = "durationBox";
             this.durationBox.Size = new System.Drawing.Size(100, 20);
-            this.durationBox.TabIndex = 14;
+            this.durationBox.TabIndex = 7;
             this.durationBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.durationBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.inputBox_KeyUp);
             // 
@@ -204,7 +196,7 @@
             this.aoeBox.Location = new System.Drawing.Point(118, 241);
             this.aoeBox.Name = "aoeBox";
             this.aoeBox.Size = new System.Drawing.Size(100, 20);
-            this.aoeBox.TabIndex = 15;
+            this.aoeBox.TabIndex = 8;
             this.aoeBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.aoeBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.inputBox_KeyUp);
             // 
@@ -231,7 +223,7 @@
             this.enchantmentChanceMultBox.Location = new System.Drawing.Point(224, 46);
             this.enchantmentChanceMultBox.Name = "enchantmentChanceMultBox";
             this.enchantmentChanceMultBox.Size = new System.Drawing.Size(172, 20);
-            this.enchantmentChanceMultBox.TabIndex = 18;
+            this.enchantmentChanceMultBox.TabIndex = 9;
             this.enchantmentChanceMultBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.enchantmentChanceMultBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.inputBox_KeyUp);
             // 
@@ -249,7 +241,7 @@
             this.enchantmentConstantChanceMultBox.Location = new System.Drawing.Point(224, 85);
             this.enchantmentConstantChanceMultBox.Name = "enchantmentConstantChanceMultBox";
             this.enchantmentConstantChanceMultBox.Size = new System.Drawing.Size(172, 20);
-            this.enchantmentConstantChanceMultBox.TabIndex = 20;
+            this.enchantmentConstantChanceMultBox.TabIndex = 10;
             this.enchantmentConstantChanceMultBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.enchantmentConstantChanceMultBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.inputBox_KeyUp);
             // 
@@ -258,7 +250,7 @@
             this.enchantmentConstantDurationMultBox.Location = new System.Drawing.Point(224, 124);
             this.enchantmentConstantDurationMultBox.Name = "enchantmentConstantDurationMultBox";
             this.enchantmentConstantDurationMultBox.Size = new System.Drawing.Size(172, 20);
-            this.enchantmentConstantDurationMultBox.TabIndex = 21;
+            this.enchantmentConstantDurationMultBox.TabIndex = 11;
             this.enchantmentConstantDurationMultBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.enchantmentConstantDurationMultBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.inputBox_KeyUp);
             // 
@@ -267,7 +259,7 @@
             this.enchantmentMultBox.Location = new System.Drawing.Point(224, 163);
             this.enchantmentMultBox.Name = "enchantmentMultBox";
             this.enchantmentMultBox.Size = new System.Drawing.Size(172, 20);
-            this.enchantmentMultBox.TabIndex = 22;
+            this.enchantmentMultBox.TabIndex = 12;
             this.enchantmentMultBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.enchantmentMultBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.inputBox_KeyUp);
             // 
@@ -276,7 +268,7 @@
             this.enchantmentValueMultBox.Location = new System.Drawing.Point(224, 202);
             this.enchantmentValueMultBox.Name = "enchantmentValueMultBox";
             this.enchantmentValueMultBox.Size = new System.Drawing.Size(172, 20);
-            this.enchantmentValueMultBox.TabIndex = 23;
+            this.enchantmentValueMultBox.TabIndex = 13;
             this.enchantmentValueMultBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.enchantmentValueMultBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.inputBox_KeyUp);
             // 
@@ -360,15 +352,40 @@
             this.effectCostMultBox.Location = new System.Drawing.Point(224, 241);
             this.effectCostMultBox.Name = "effectCostMultBox";
             this.effectCostMultBox.Size = new System.Drawing.Size(172, 20);
-            this.effectCostMultBox.TabIndex = 32;
+            this.effectCostMultBox.TabIndex = 14;
             this.effectCostMultBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.effectCostMultBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.inputBox_KeyUp);
+            // 
+            // typeBox
+            // 
+            this.typeBox.FormattingEnabled = true;
+            this.typeBox.Items.AddRange(new object[] {
+            "On Target",
+            "On Touch",
+            "Constant Effect"});
+            this.typeBox.Location = new System.Drawing.Point(118, 45);
+            this.typeBox.Name = "typeBox";
+            this.typeBox.Size = new System.Drawing.Size(100, 21);
+            this.typeBox.TabIndex = 3;
+            this.typeBox.SelectedIndexChanged += new System.EventHandler(this.typeBox_SelectedIndexChanged);
+            // 
+            // resetButton
+            // 
+            this.resetButton.Location = new System.Drawing.Point(321, 267);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(75, 23);
+            this.resetButton.TabIndex = 32;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 505);
+            this.Controls.Add(this.resetButton);
+            this.Controls.Add(this.typeBox);
             this.Controls.Add(this.effectCostMultBox);
             this.Controls.Add(this.efCosMultLabel);
             this.Controls.Add(this.morrowindLabel);
@@ -397,7 +414,6 @@
             this.Controls.Add(this.luckLabel);
             this.Controls.Add(this.intelligenceLabel);
             this.Controls.Add(this.enchantLabel);
-            this.Controls.Add(this.typeBox);
             this.Controls.Add(this.baseCostBox);
             this.Controls.Add(this.luckBox);
             this.Controls.Add(this.intelligenceBox);
@@ -417,7 +433,6 @@
         private System.Windows.Forms.TextBox intelligenceBox;
         private System.Windows.Forms.TextBox luckBox;
         private System.Windows.Forms.TextBox baseCostBox;
-        private System.Windows.Forms.TextBox typeBox;
         private System.Windows.Forms.Label enchantLabel;
         private System.Windows.Forms.Label intelligenceLabel;
         private System.Windows.Forms.Label luckLabel;
@@ -446,6 +461,8 @@
         private System.Windows.Forms.Label morrowindLabel;
         private System.Windows.Forms.Label efCosMultLabel;
         private System.Windows.Forms.TextBox effectCostMultBox;
+        private System.Windows.Forms.ComboBox typeBox;
+        private System.Windows.Forms.Button resetButton;
     }
 }
 

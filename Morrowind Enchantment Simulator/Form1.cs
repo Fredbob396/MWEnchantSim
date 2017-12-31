@@ -16,6 +16,7 @@ namespace Morrowind_Enchantment_Simulator
     public partial class Form1 : Form
     {
         private EnchantSim _sim = new EnchantSim();
+        private bool _firstLoad = true;
 
         public Form1()
         {
@@ -24,10 +25,11 @@ namespace Morrowind_Enchantment_Simulator
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadDefaultInfo();
+            SetDefaultFormValues();
+            _firstLoad = false;
         }
 
-        private void LoadDefaultInfo()
+        private void SetDefaultFormValues()
         {
             //Character
             enchantBox.Text = _sim.CharacterInfo.EnchantSkill.ToString("");
@@ -35,7 +37,7 @@ namespace Morrowind_Enchantment_Simulator
             luckBox.Text = _sim.CharacterInfo.Luck.ToString("");
 
             //Item
-            typeBox.Text = _sim.ItemInfo.Type;
+            typeBox.SelectedIndex = 0;
             baseCostBox.Text = _sim.ItemInfo.BaseCost.ToString("");
             minMagBox.Text = _sim.ItemInfo.MinMagnitude.ToString("");
             maxMagBox.Text = _sim.ItemInfo.MaxMagnitude.ToString("");
@@ -115,6 +117,19 @@ namespace Morrowind_Enchantment_Simulator
                     e.Handled = true;
                 }
             }
+        }
+
+        private void typeBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!_firstLoad)
+            {
+                UpdateSim();
+            }
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            SetDefaultFormValues();
         }
     }
 }
