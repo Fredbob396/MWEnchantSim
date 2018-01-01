@@ -99,6 +99,13 @@ namespace Morrowind_Enchantment_Simulator
 
         private void inputBox_KeyUp(object sender, KeyEventArgs e)
         {
+            // Check for if changes whole box with highlight
+            TextBox textBox = (TextBox) sender;
+            if (textBox.Text.Equals("") || textBox.Text.Equals("."))
+            {
+                textBox.Text = "0";
+            }
+
             // Don't update sim if last key pressed is a period or decimal
             if (!e.KeyCode.Equals(Keys.OemPeriod) && !e.KeyCode.Equals(Keys.Decimal))
             {
