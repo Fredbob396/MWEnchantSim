@@ -367,8 +367,8 @@
             // 
             this.typeBox.FormattingEnabled = true;
             this.typeBox.Items.AddRange(new object[] {
+            "On Touch/Self",
             "On Target",
-            "On Touch",
             "Constant Effect"});
             this.typeBox.Location = new System.Drawing.Point(118, 45);
             this.typeBox.Name = "typeBox";
@@ -452,7 +452,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 301);
+            this.ClientSize = new System.Drawing.Size(543, 297);
             this.Controls.Add(this.craftChanceBox);
             this.Controls.Add(this.craftChanceLabel);
             this.Controls.Add(this.castCostBox);
