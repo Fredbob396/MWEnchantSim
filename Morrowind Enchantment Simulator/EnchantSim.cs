@@ -41,7 +41,7 @@ namespace Morrowind_Enchantment_Simulator
             float areaCost = areaOfEffect * 0.05f * ItemInfo.BaseCost;
             float cost = Math.Max(1f, (magnitudeCost + areaCost) * MWVars.EffectCostMult);
 
-            if (ItemInfo.Type.Equals("Target"))
+            if (ItemInfo.Type.Equals("On Target"))
             {
                 cost *= 1.5f;
             }

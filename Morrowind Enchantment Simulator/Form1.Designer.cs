@@ -64,12 +64,12 @@
             this.typeBox = new System.Windows.Forms.ComboBox();
             this.resetButton = new System.Windows.Forms.Button();
             this.verticalDivider = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.enchantmentPointsLabel = new System.Windows.Forms.Label();
+            this.enchantmentPointsBox = new System.Windows.Forms.TextBox();
+            this.castCostLabel = new System.Windows.Forms.Label();
+            this.castCostBox = new System.Windows.Forms.TextBox();
+            this.craftChanceLabel = new System.Windows.Forms.Label();
+            this.craftChanceBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // enchantBox
@@ -394,71 +394,71 @@
             this.verticalDivider.Size = new System.Drawing.Size(2, 339);
             this.verticalDivider.TabIndex = 2;
             // 
-            // label1
+            // enchantmentPointsLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(410, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 13);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Enchantment Points";
+            this.enchantmentPointsLabel.AutoSize = true;
+            this.enchantmentPointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enchantmentPointsLabel.Location = new System.Drawing.Point(410, 30);
+            this.enchantmentPointsLabel.Name = "enchantmentPointsLabel";
+            this.enchantmentPointsLabel.Size = new System.Drawing.Size(120, 13);
+            this.enchantmentPointsLabel.TabIndex = 33;
+            this.enchantmentPointsLabel.Text = "Enchantment Points";
             // 
-            // textBox1
+            // enchantmentPointsBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(410, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 34;
+            this.enchantmentPointsBox.Location = new System.Drawing.Point(410, 46);
+            this.enchantmentPointsBox.Name = "enchantmentPointsBox";
+            this.enchantmentPointsBox.ReadOnly = true;
+            this.enchantmentPointsBox.Size = new System.Drawing.Size(120, 20);
+            this.enchantmentPointsBox.TabIndex = 34;
             // 
-            // label2
+            // castCostLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(410, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Cast Cost";
+            this.castCostLabel.AutoSize = true;
+            this.castCostLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.castCostLabel.Location = new System.Drawing.Point(410, 69);
+            this.castCostLabel.Name = "castCostLabel";
+            this.castCostLabel.Size = new System.Drawing.Size(61, 13);
+            this.castCostLabel.TabIndex = 35;
+            this.castCostLabel.Text = "Cast Cost";
             // 
-            // textBox2
+            // castCostBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(410, 85);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(120, 20);
-            this.textBox2.TabIndex = 36;
+            this.castCostBox.Location = new System.Drawing.Point(410, 85);
+            this.castCostBox.Name = "castCostBox";
+            this.castCostBox.ReadOnly = true;
+            this.castCostBox.Size = new System.Drawing.Size(120, 20);
+            this.castCostBox.TabIndex = 36;
             // 
-            // label3
+            // craftChanceLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(410, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 13);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Craft Chance";
+            this.craftChanceLabel.AutoSize = true;
+            this.craftChanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.craftChanceLabel.Location = new System.Drawing.Point(410, 108);
+            this.craftChanceLabel.Name = "craftChanceLabel";
+            this.craftChanceLabel.Size = new System.Drawing.Size(81, 13);
+            this.craftChanceLabel.TabIndex = 37;
+            this.craftChanceLabel.Text = "Craft Chance";
             // 
-            // textBox3
+            // craftChanceBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(410, 124);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(120, 20);
-            this.textBox3.TabIndex = 38;
+            this.craftChanceBox.Location = new System.Drawing.Point(410, 124);
+            this.craftChanceBox.Name = "craftChanceBox";
+            this.craftChanceBox.ReadOnly = true;
+            this.craftChanceBox.Size = new System.Drawing.Size(120, 20);
+            this.craftChanceBox.TabIndex = 38;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(543, 301);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.craftChanceBox);
+            this.Controls.Add(this.craftChanceLabel);
+            this.Controls.Add(this.castCostBox);
+            this.Controls.Add(this.castCostLabel);
+            this.Controls.Add(this.enchantmentPointsBox);
+            this.Controls.Add(this.enchantmentPointsLabel);
             this.Controls.Add(this.verticalDivider);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.typeBox);
@@ -541,12 +541,12 @@
         private System.Windows.Forms.ComboBox typeBox;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Label verticalDivider;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label enchantmentPointsLabel;
+        private System.Windows.Forms.TextBox enchantmentPointsBox;
+        private System.Windows.Forms.Label castCostLabel;
+        private System.Windows.Forms.TextBox castCostBox;
+        private System.Windows.Forms.Label craftChanceLabel;
+        private System.Windows.Forms.TextBox craftChanceBox;
     }
 }
 

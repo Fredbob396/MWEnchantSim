@@ -15,7 +15,7 @@ namespace Morrowind_Enchantment_Simulator
 {
     public partial class Form1 : Form
     {
-        private EnchantSim _sim = new EnchantSim();
+        private EnchantSim _sim;
         private bool _firstLoad = true;
 
         public Form1()
@@ -25,18 +25,20 @@ namespace Morrowind_Enchantment_Simulator
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SetDefaultFormValues();
+            SetDefaultValues();
             _firstLoad = false;
         }
 
-        private void SetDefaultFormValues()
+        private void SetDefaultValues()
         {
-            //Character
+            _sim = new EnchantSim();
+
+            // Character
             enchantBox.Text = _sim.CharacterInfo.EnchantSkill.ToString("");
             intelligenceBox.Text = _sim.CharacterInfo.Intelligence.ToString("");
             luckBox.Text = _sim.CharacterInfo.Luck.ToString("");
 
-            //Item
+            // Item
             typeBox.SelectedIndex = 0;
             baseCostBox.Text = _sim.ItemInfo.BaseCost.ToString("");
             minMagBox.Text = _sim.ItemInfo.MinMagnitude.ToString("");
@@ -44,13 +46,18 @@ namespace Morrowind_Enchantment_Simulator
             durationBox.Text = _sim.ItemInfo.Duration.ToString("");
             aoeBox.Text = _sim.ItemInfo.AreaOfEffect.ToString("");
 
-            //Morrowind
+            // Morrowind
             enchantmentChanceMultBox.Text = _sim.MWVars.EnchantmentChanceMult.ToString("");
             enchantmentConstantChanceMultBox.Text = _sim.MWVars.EnchantmentConstantChanceMult.ToString("");
             enchantmentConstantDurationMultBox.Text = _sim.MWVars.EnchantmentConstantDurationMult.ToString("");
             enchantmentMultBox.Text = _sim.MWVars.EnchantmentMult.ToString("");
             enchantmentValueMultBox.Text = _sim.MWVars.EnchantmentValueMult.ToString("");
             effectCostMultBox.Text = _sim.MWVars.EffectCostMult.ToString("");
+
+            // Results
+            enchantmentPointsBox.Text = "";
+            castCostBox.Text = "";
+            craftChanceBox.Text = "";
         }
 
         /// <summary>
@@ -58,24 +65,51 @@ namespace Morrowind_Enchantment_Simulator
         /// </summary>
         private void UpdateFormElements()
         {
-            //TODO
+            enchantmentPointsBox.Text = _sim.GetEnchantPoints().ToString("");
+            castCostBox.Text = _sim.GetCastCost().ToString("");
+            craftChanceBox.Text = _sim.GetEnchantChance().ToString("");
         }
 
+        /// <summary>
+        /// Updates values in the sim from the form
+        /// </summary>
         private void UpdateSim()
         {
-            //TODO
-            //_sim.CharacterInfo.EnchantSkill = Convert.ToSingle(enchantBox.Text);
+            // Character
+            _sim.CharacterInfo.EnchantSkill = Convert.ToSingle(enchantBox.Text);
+            _sim.CharacterInfo.Intelligence = Convert.ToSingle(intelligenceBox.Text);
+            _sim.CharacterInfo.Luck = Convert.ToSingle(luckBox.Text);
+
+            // Item
+            _sim.ItemInfo.Type = typeBox.Text;
+            _sim.ItemInfo.BaseCost = Convert.ToSingle(baseCostBox.Text);
+            _sim.ItemInfo.MinMagnitude = Convert.ToSingle(minMagBox.Text);
+            _sim.ItemInfo.MaxMagnitude = Convert.ToSingle(maxMagBox.Text);
+            _sim.ItemInfo.Duration = Convert.ToSingle(durationBox.Text);
+            _sim.ItemInfo.AreaOfEffect = Convert.ToSingle(aoeBox.Text);
+
+            // Morrowind
+            _sim.MWVars.EnchantmentChanceMult = Convert.ToSingle(enchantmentChanceMultBox.Text);
+            _sim.MWVars.EnchantmentConstantChanceMult = Convert.ToSingle(enchantmentConstantChanceMultBox.Text);
+            _sim.MWVars.EnchantmentConstantDurationMult = Convert.ToSingle(enchantmentConstantDurationMultBox.Text);
+            _sim.MWVars.EnchantmentMult = Convert.ToSingle(enchantmentChanceMultBox.Text);
+            _sim.MWVars.EnchantmentValueMult = Convert.ToSingle(enchantmentValueMultBox.Text);
+            _sim.MWVars.EffectCostMult = Convert.ToSingle(effectCostMultBox.Text);
         }
 
         private void inputBox_KeyUp(object sender, KeyEventArgs e)
         {
-            // Don't update sim if last key pressed is a period or backspace
-            if (!e.KeyCode.Equals(Keys.OemPeriod) && !e.KeyCode.Equals(Keys.Back))
+            // Don't update sim if last key pressed is a period or decimal
+            if (!e.KeyCode.Equals(Keys.OemPeriod) && !e.KeyCode.Equals(Keys.Decimal))
             {
                 UpdateSim();
+                UpdateFormElements();
             }
         }
 
+        /// <summary>
+        /// Validates textbox keypresses to only allow values that are valid floats
+        /// </summary>
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -124,12 +158,13 @@ namespace Morrowind_Enchantment_Simulator
             if (!_firstLoad)
             {
                 UpdateSim();
+                UpdateFormElements();
             }
         }
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            SetDefaultFormValues();
+            SetDefaultValues();
         }
     }
 }
