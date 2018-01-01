@@ -58,6 +58,7 @@ namespace Morrowind_Enchantment_Simulator
             enchantmentPointsBox.Text = "";
             castCostBox.Text = "";
             craftChanceBox.Text = "";
+            maxEnchantBox.Text = "";
         }
 
         /// <summary>
@@ -68,6 +69,7 @@ namespace Morrowind_Enchantment_Simulator
             enchantmentPointsBox.Text = _sim.GetEnchantPoints().ToString("");
             castCostBox.Text = _sim.GetCastCost().ToString("");
             craftChanceBox.Text = _sim.GetEnchantChance().ToString("");
+            maxEnchantBox.Text = _sim.GetMaxEnchantValue().ToString("");
         }
 
         /// <summary>

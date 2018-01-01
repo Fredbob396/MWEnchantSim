@@ -70,6 +70,8 @@
             this.castCostBox = new System.Windows.Forms.TextBox();
             this.craftChanceLabel = new System.Windows.Forms.Label();
             this.craftChanceBox = new System.Windows.Forms.TextBox();
+            this.maxEnchantLabel = new System.Windows.Forms.Label();
+            this.maxEnchantBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // enchantBox
@@ -448,11 +450,31 @@
             this.craftChanceBox.Size = new System.Drawing.Size(120, 20);
             this.craftChanceBox.TabIndex = 38;
             // 
+            // maxEnchantLabel
+            // 
+            this.maxEnchantLabel.AutoSize = true;
+            this.maxEnchantLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maxEnchantLabel.Location = new System.Drawing.Point(410, 147);
+            this.maxEnchantLabel.Name = "maxEnchantLabel";
+            this.maxEnchantLabel.Size = new System.Drawing.Size(117, 13);
+            this.maxEnchantLabel.TabIndex = 39;
+            this.maxEnchantLabel.Text = "Max Enchant Value";
+            // 
+            // maxEnchantBox
+            // 
+            this.maxEnchantBox.Location = new System.Drawing.Point(410, 163);
+            this.maxEnchantBox.Name = "maxEnchantBox";
+            this.maxEnchantBox.ReadOnly = true;
+            this.maxEnchantBox.Size = new System.Drawing.Size(117, 20);
+            this.maxEnchantBox.TabIndex = 40;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(543, 297);
+            this.Controls.Add(this.maxEnchantBox);
+            this.Controls.Add(this.maxEnchantLabel);
             this.Controls.Add(this.craftChanceBox);
             this.Controls.Add(this.craftChanceLabel);
             this.Controls.Add(this.castCostBox);
@@ -547,6 +569,8 @@
         private System.Windows.Forms.TextBox castCostBox;
         private System.Windows.Forms.Label craftChanceLabel;
         private System.Windows.Forms.TextBox craftChanceBox;
+        private System.Windows.Forms.Label maxEnchantLabel;
+        private System.Windows.Forms.TextBox maxEnchantBox;
     }
 }
 

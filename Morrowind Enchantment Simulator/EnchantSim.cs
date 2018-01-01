@@ -71,7 +71,7 @@ namespace Morrowind_Enchantment_Simulator
             if (ItemInfo.Type.Equals("Constant Effect")) { return 0.0f; }
 
             float castCost = GetEnchantPoints();
-            return Math.Max(1.0f, castCost - (castCost - 100.0f) * (CharacterInfo.EnchantSkill - 10.0f));
+            return Math.Max(1.0f, castCost - (castCost / 100.0f) * (CharacterInfo.EnchantSkill - 10.0f));
         }
 
         /// <summary>
