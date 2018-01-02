@@ -29,22 +29,23 @@ namespace Morrowind_Enchantment_Simulator
             _firstLoad = false;
         }
 
+        //TODO: Load default values from config file
         private void SetDefaultValues()
         {
             _sim = new EnchantSim();
 
             // Character
-            enchantBox.Text = _sim.CharacterInfo.EnchantSkill.ToString("");
-            intelligenceBox.Text = _sim.CharacterInfo.Intelligence.ToString("");
-            luckBox.Text = _sim.CharacterInfo.Luck.ToString("");
+            enchantBox.Text = _sim.Character.EnchantSkill.ToString("");
+            intelligenceBox.Text = _sim.Character.Intelligence.ToString("");
+            luckBox.Text = _sim.Character.Luck.ToString("");
 
             // Item
             typeBox.SelectedIndex = 0;
-            baseCostBox.Text = _sim.ItemInfo.BaseCost.ToString("");
-            minMagBox.Text = _sim.ItemInfo.MinMagnitude.ToString("");
-            maxMagBox.Text = _sim.ItemInfo.MaxMagnitude.ToString("");
-            durationBox.Text = _sim.ItemInfo.Duration.ToString("");
-            aoeBox.Text = _sim.ItemInfo.AreaOfEffect.ToString("");
+            baseCostBox.Text = _sim.Enchant.BaseCost.ToString("");
+            minMagBox.Text = _sim.Enchant.MinMagnitude.ToString("");
+            maxMagBox.Text = _sim.Enchant.MaxMagnitude.ToString("");
+            durationBox.Text = _sim.Enchant.Duration.ToString("");
+            aoeBox.Text = _sim.Enchant.AreaOfEffect.ToString("");
 
             // Morrowind
             enchantmentChanceMultBox.Text = _sim.MWVars.EnchantmentChanceMult.ToString("");
@@ -78,17 +79,17 @@ namespace Morrowind_Enchantment_Simulator
         private void UpdateSim()
         {
             // Character
-            _sim.CharacterInfo.EnchantSkill = Convert.ToSingle(enchantBox.Text);
-            _sim.CharacterInfo.Intelligence = Convert.ToSingle(intelligenceBox.Text);
-            _sim.CharacterInfo.Luck = Convert.ToSingle(luckBox.Text);
+            _sim.Character.EnchantSkill = Convert.ToSingle(enchantBox.Text);
+            _sim.Character.Intelligence = Convert.ToSingle(intelligenceBox.Text);
+            _sim.Character.Luck = Convert.ToSingle(luckBox.Text);
 
             // Item
-            _sim.ItemInfo.Type = typeBox.Text;
-            _sim.ItemInfo.BaseCost = Convert.ToSingle(baseCostBox.Text);
-            _sim.ItemInfo.MinMagnitude = Convert.ToSingle(minMagBox.Text);
-            _sim.ItemInfo.MaxMagnitude = Convert.ToSingle(maxMagBox.Text);
-            _sim.ItemInfo.Duration = Convert.ToSingle(durationBox.Text);
-            _sim.ItemInfo.AreaOfEffect = Convert.ToSingle(aoeBox.Text);
+            _sim.Enchant.Type = typeBox.Text;
+            _sim.Enchant.BaseCost = Convert.ToSingle(baseCostBox.Text);
+            _sim.Enchant.MinMagnitude = Convert.ToSingle(minMagBox.Text);
+            _sim.Enchant.MaxMagnitude = Convert.ToSingle(maxMagBox.Text);
+            _sim.Enchant.Duration = Convert.ToSingle(durationBox.Text);
+            _sim.Enchant.AreaOfEffect = Convert.ToSingle(aoeBox.Text);
 
             // Morrowind
             _sim.MWVars.EnchantmentChanceMult = Convert.ToSingle(enchantmentChanceMultBox.Text);
