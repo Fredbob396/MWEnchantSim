@@ -1,6 +1,6 @@
 ﻿namespace Morrowind_Enchantment_Simulator
 {
-    class MWVars
+    public class MWVars
     {
         public float EnchantmentChanceMult = 3.0f;
         public float EnchantmentConstantChanceMult = 0.5f;

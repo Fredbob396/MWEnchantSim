@@ -4,9 +4,8 @@ namespace Morrowind_Enchantment_Simulator
 {
     class EnchantSim
     {
-        // TODO: De-couple these properties from the EnchantSim class
         public Character Character = new Character();
-        public Enchant Enchant = new Enchant();
+        public Effects Effects = new Effects();
         public MWVars MWVars = new MWVars();
 
         /*
@@ -28,28 +27,32 @@ namespace Morrowind_Enchantment_Simulator
         /// </summary>
         public float GetEnchantPoints()
         {
-            float minMag = Math.Max(1.0f, Enchant.MinMagnitude);
-            float maxMag = Math.Max(1.0f, Enchant.MaxMagnitude);
-            float areaOfEffect = Math.Max(1.0f, Enchant.AreaOfEffect);
-
-            float magnitudeCost = (minMag + maxMag) * Enchant.BaseCost * 0.05f;
-
-            magnitudeCost *= Enchant.Type.Equals("Constant Effect")
-                ? MWVars.EnchantmentConstantDurationMult
-                : Enchant.Duration;
-
-            float areaCost = areaOfEffect * 0.05f * Enchant.BaseCost;
-            float cost = Math.Max(1f, (magnitudeCost + areaCost) * MWVars.EffectCostMult);
-
-            if (Enchant.Type.Equals("On Target"))
+            float enchantPoints = 0;
+            foreach (Effect effect in Effects.Enchants)
             {
-                cost *= 1.5f;
+                float minMag = Math.Max(1.0f, effect.MinMagnitude);
+                float maxMag = Math.Max(1.0f, effect.MaxMagnitude);
+                float areaOfEffect = Math.Max(1.0f, effect.AreaOfEffect);
+
+                float magnitudeCost = (minMag + maxMag) * effect.BaseCost * 0.05f;
+
+                magnitudeCost *= Effects.IsConstant
+                    ? MWVars.EnchantmentConstantDurationMult
+                    : effect.Duration;
+
+                float areaCost = areaOfEffect * 0.05f * effect.BaseCost;
+                float effectCost = Math.Max(1f, (magnitudeCost + areaCost) * MWVars.EffectCostMult);
+
+                if (effect.CastStyle.Equals("On Target"))
+                {
+                    effectCost *= 1.5f;
+                }
+
+                // Rounds to a whole number
+                enchantPoints += Convert.ToInt32(effectCost);
             }
 
-            // Rounds to a whole number
-            cost = Convert.ToInt32(cost);
-
-            return cost;
+            return enchantPoints;
         }
 
         /// <summary>
@@ -71,8 +74,7 @@ namespace Morrowind_Enchantment_Simulator
         public float GetCastCost()
         {
             // Constant effects have no cast cost
-            //TODO: Figure out how this works with multiple effects
-            if (Enchant.Type.Equals("Constant Effect")) { return 0.0f; }
+            if (Effects.IsConstant) { return 0.0f; }
 
             float castCost = GetEnchantPoints();
             return Math.Max(1.0f, castCost - (castCost / 100.0f) * (Character.EnchantSkill - 10.0f));
@@ -96,9 +98,8 @@ namespace Morrowind_Enchantment_Simulator
                 (0.25f * Character.Intelligence) +
                 (0.125f * Character.Luck);
 
-            //TODO: Figure out how this works with multiple effects
             float chance2 = 7.5f / (MWVars.EnchantmentChanceMult);
-            chance2 *= Enchant.Type.Equals("Constant Effect") 
+            chance2 *= Effects.IsConstant
                 ? MWVars.EnchantmentConstantChanceMult 
                 : 1.0f;
 

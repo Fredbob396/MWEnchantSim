@@ -63,20 +63,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Character.cs" />
-    <Compile Include="EnchantSim.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="AddEffectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AddEffectForm.Designer.cs">
+      <DependentUpon>AddEffectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Enchant.cs" />
+    <Compile Include="Entities\Character.cs" />
+    <Compile Include="EnchantSim.cs" />
+    <Compile Include="Entities\Effects.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Effect.cs" />
     <Compile Include="Entities\MWVars.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Utils\InputValidator.cs" />
+    <EmbeddedResource Include="AddEffectForm.resx">
+      <DependentUpon>AddEffectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
