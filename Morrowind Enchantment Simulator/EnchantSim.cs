@@ -28,6 +28,7 @@ namespace Morrowind_Enchantment_Simulator
         public float GetEnchantPoints()
         {
             float enchantPoints = 0;
+            int effectsLeft = Effects.Enchants.Count;
             foreach (Effect effect in Effects.Enchants)
             {
                 float minMag = Math.Max(1.0f, effect.MinMagnitude);
@@ -48,8 +49,9 @@ namespace Morrowind_Enchantment_Simulator
                     effectCost *= 1.5f;
                 }
 
-                // Rounds to a whole number
-                enchantPoints += Convert.ToInt32(effectCost);
+                // Rounds to a whole number, multiplies by number of effects left
+                enchantPoints += Convert.ToInt32(effectCost) * effectsLeft;
+                effectsLeft--;
             }
 
             return enchantPoints;
